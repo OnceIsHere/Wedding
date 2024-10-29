@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="Picture/OnceIsHere.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walimatul Urus</title>
+    <style>
+        @font-face {
+            font-family: 'White Star';
+            src: url('fonts/WhiteStar.ttf') format('truetype'); /* Update the path to your font file */
+        }
+		@font-face {
+            font-family: 'Cinzel Dec Bold';
+            src: url('fonts/CinzelDecorative-Bold.ttf') format('truetype'); /* Update the path to your font file */
+        }
+		@font-face {
+            font-family: 'Cinzel Dec Regular';
+            src: url('fonts/CinzelDecorative-Regular.ttf') format('truetype'); /* Update the path to your font file */
+        }
+		@font-face {
+            font-family: 'Noto';
+            src: url('fonts/NotoSerifEthiopic_Condensed-Bold.ttf') format('truetype'); /* Update the path to your font file */
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('Picture/4877010.jpg') no-repeat center center fixed; /* Update the path to your image */
+            background-size: cover;
+        }
+        .content {
+            position: relative;
+            text-align: center;
+            color: black;
+        }
+        .header {
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 5%;
+            color: black;
+            animation: succession 5s ease-in-out;
+        }
+		.isi {
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 5%;
+            color: black;
+			margin-left: 15%; /* Adjust the margin as needed */
+			margin-right: 15%; /* Adjust the margin as needed */
+            animation: succession 5s ease-in-out;
+        }
+        @keyframes succession {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .header h2 {
+            margin: 10px 0 0;
+            font-size: 48px; /* Adjust the font size here */
+            font-family: 'White Star', Arial, sans-serif;
+        }
+        .header .serta {
+            margin: 20px 0;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .header .date-info {
+            margin: 10px 0;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1; /* Adjust line spacing */
+        }
+       .nav-bar {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			background-color: white; /* White background */
+			display: flex;
+			justify-content: space-around;
+			padding: 10px 0;
+			border-top-left-radius: 15px; /* Rounded top left edge */
+			border-top-right-radius: 15px; /* Rounded top right edge */
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better visibility */
+		}
+
+		.nav-bar button {
+			background: none;
+			border: none;
+			color: black; /* Change text color to black for better contrast */
+			font-size: 16px;
+			cursor: pointer;
+			text-decoration: none;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.nav-bar button img {
+			width: 24px; /* Adjust the size of the icons */
+			height: 24px;
+		}
+
+		.nav-text {
+			font-size: 12px; /* Small font for the text below the icons */
+			margin-top: 5px;
+			text-align: center; /* Center the text */
+		}
+	   .overlay {
+				display: none; /* Hidden by default */
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+				z-index: 999; /* Ensure it is above other elements */
+			}
+
+			/* Active class for popups and overlay */
+			.popup.active, .overlay.active {
+				display: flex; /* Show the popup and overlay */
+				justify-content: center;
+				align-items: center;
+			}
+		.popup {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: white;
+			padding: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			z-index: 1000;
+			border-radius: 15px; /* Rounded corners */
+			width: 320px; /* Adjusted width */
+		}
+
+		.popup.active {
+			display: block;
+		}
+
+		.popup h3 {
+			margin-top: 0;
+			text-align: center;
+			font-family: 'Cinzel Dec Bold', Times, serif;
+			font-weight: bold;
+		}
+		.popup form {
+			display: flex;
+			flex-direction: column;
+			align-items: center; /* Center the form elements */
+		}
+		.popup form label {
+			margin-top: 10px;
+			text-align: center; /* Center the label text */
+		}
+
+		.popup form input {
+			margin-top: 5px;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			width: 80%; /* Adjust the width to fit the form */
+			text-align: center; /* Center the input text */
+		}
+
+		.popup form button {
+			margin-top: 15px;
+			padding: 10px;
+			border: none;
+			background-color: #4CAF50;
+			color: white;
+			border-radius: 5px;
+			cursor: pointer;
+			width: 50%; /* Adjust the width to fit the form */
+			text-align: center; /* Center the button text */
+		}
+		.form-buttons {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				margin-top: 15px;
+			}
+
+			.form-buttons button {
+				padding: 10px;
+				border: 2px solid black; /* Add black border */
+				background-color: white; /* White background */
+				color: black; /* Black text */
+				border-radius: 15px; /* Rounded corners */
+				cursor: pointer;
+				width: 45%; /* Adjust the width to fit the form */
+				text-align: center; /* Center the button text */
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight shadow to make it look like a button */
+			}
+
+			.form-buttons button[type="button"] {
+				background-color: white; /* White background for the "Tutup" button */
+				color: black; /* Black text for the "Tutup" button */
+			}
+
+			.form-buttons button[type="button"]:hover {
+				background-color: #f0f0f0; /* Light grey on hover */
+			}
+
+			/* Default state for the "hantar" button */
+			.form-buttons button[type="submit"] {
+				background-color: white; /* Set background to white */
+				color: black; /* Set text color to black */
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow box */
+				border: none; /* Remove border if any */
+				padding: 10px 20px; /* Adjust padding as needed */
+				cursor: pointer; /* Change cursor to pointer on hover */
+			}
+
+			/* Hover state for the "hantar" button */
+			.form-buttons button[type="submit"]:hover {
+				background-color: white; /* Ensure background remains white on hover */
+				color: black; /* Ensure text color remains black on hover */
+				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly increase shadow on hover */
+			}
+
+		
+		.popup .close-btn {
+			background: none;
+			border: none;
+			font-size: 16px;
+			color: #333;
+			cursor: pointer;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+		.rsvp-buttons {
+			display: flex;
+			justify-content: space-around;
+			margin-top: 20px;
+		}
+
+		.rsvp-button {
+			background-color: white; /* White background */
+			color: black; /* Black text */
+			border: 2px solid black; /* Black border */
+			padding: 10px 20px; /* Adjusted padding */
+			border-radius: 15px; /* Rounded corners */
+			cursor: pointer;
+			font-size: 14px; /* Adjusted font size */
+			width: 120px; /* Fixed width */
+			text-align: center;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight shadow to make it look like a button */
+		}
+		.rsvp-button:active {
+			box-shadow: none; /* Remove shadow on click to simulate button press */
+		}
+		
+		.gift-section {
+			text-align: center;
+		}
+
+		.gift-box {
+				background-color: lightgray !important;
+				padding: 10px;
+				margin: 10px 0;
+				border-radius: 5px;
+				display: flex;
+				justify-content: center; /* Center horizontally */
+				align-items: center; /* Center vertically */
+				text-align: center; /* Ensure text is centered */
+			}
+
+		.copy-icon {
+			width: 20px;
+			height: 20px;
+			cursor: pointer;
+			margin-left: 10px; /* Adjust the margin as needed */
+		}
+		.down-icon {
+			width: 120px;
+			height: 50px;
+			cursor: pointer;
+			margin-left: 10px; /* Adjust the margin as needed */
+		}
+
+		.qr-image {
+			width: 200px;
+			height: 200px;
+			display: block; /* Ensure it behaves like a block element */
+			margin: 10px auto; /* Center the image horizontally */
+		}
+		.flex {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.pt-5 {
+			padding-top: 2px; /* Adjust as needed */
+		}
+
+	 
+		.contact-section {
+			display: flex;
+			justify-content: space-between; /* Space between text and icons */
+			align-items: center;
+			margin-top: 2px;
+		}
+
+		.icon-group {
+			display: flex;
+			gap: 10px; /* Add space between the icons */
+		}
+
+		.contact-icon {
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+		}
+		
+		.map-container {
+			display: flex;
+			justify-content: center;
+			margin: 10px 0;
+		}
+
+		.icon-group {
+			display: flex;
+			justify-content: center;
+			gap: 20px; /* Add space between the icons */
+		}
+
+		.map-icon {
+			width: 120px;
+			height: 40px;
+			cursor: pointer;
+		}
+
+		.close-btn {
+			background: none;
+			border: none;
+			font-size: 16px;
+			color: #333;
+			cursor: pointer;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+		
+		
+		.calendar-container {
+			display: flex;
+			justify-content: center;
+			margin: 20px 0;
+		}
+
+		.calendar {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.calendar caption {
+			font-size: 1.5em;
+			margin-bottom: 10px;
+		}
+
+		.calendar th, .calendar td {
+			border: 1px solid #ddd;
+			padding: 5px;
+			text-align: center;
+		}
+
+		.calendar .marked {
+			background-color: yellow; /* Highlight the marked date */
+		}
+		.calendar-icon {
+			width: 120px;
+			height: 40px;
+			cursor: pointer;
+		}
+				 
+	 
+	 
+	 
+	 
+		.countdown-container {
+			text-align: center;
+			margin-top: 10px;
+			color: black;
+		}
+
+		.countdown-container h3 {
+			font-size: 24px;
+			margin-bottom: 10px;
+			font-family: 'Cinzel Dec Bold', Times, serif;
+			font-weight: bold;
+		}
+
+		#countdown {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			font-size: 20px;
+		}
+
+		#countdown div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-family: 'Times New Roman', Times, serif;
+			font-weight: bold;
+		}
+		.countdown-image {
+			width: 100%; /* Adjust the width as needed */
+			max-width: 300px; /* Adjust the max-width as needed */
+			margin-bottom: -15px;
+			margin-top: 5px;
+		}
+
+
+
+    </style>
+	
+	
+	
+
+
+
+</head>
+<body>
+    <div id="home" class="content">
+        <div class="header">
+            <h1>WALIMATUL URUS</h1>
+            <h2>Azwan<br>&<br>Amelia</h2>
+            <div class="serta">SERTA</div>
+            <h2>Farouk<br>&<br>Syadiyah</h2>
+            <div class="date-info">
+                <p>SABTU, 1 FEBRUARI 2025</p>
+                <p>BERSAMAAN</p>
+                <p>3 SYAABAN 1446H</p>
+				<p><br></p>
+            </div>
+        </div>
+		<div class="isi" class="kandungan">
+		 <p style="font-family: 'Cinzel Dec Regular'; font-size: 14px;line-height: 1;"><b>Assalamualaikum &amp; Salam Sejahtera</b></p>
+                <p style="font-family: 'Cinzel Dec Regular';line-height: 1;">Norizam Bin Mohamed (Kinong)</p>
+                <p style="font-family: 'Cinzel Dec Regular'; line-height: 1;">N<span style="letter-spacing: 0.5px;">o</span>or Laili Binti Saadin</p>
+                <p style="font-family: 'Cinzel Dec Regular';">Bayah Binti Sabirin (Ibu)</p>
+                <p style="font-family: 'Noto';"><strong>Dengan penuh syukur dan ikhlas menjemput</strong></p>
+				<p style="font-family: 'Noto';"><strong>Dato' / Datin / Tuan / Puan / Encik / Cik</strong></p>
+                <p style="font-family: 'Noto';font-size: 12px;">Suami &amp; isteri ke majlis anakanda kami yang dikasihi:</p>
+                <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><span>Mohamad Khairul Azwan B Mhd A Wahid</span></p>
+                <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">&amp;</span></strong></p>
+                <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">Intan Amelia Binti Supardi</span></strong></p>
+                <p style="font-family: 'Cinzel Dec Regular';"><span style="color: rgb(0, 0, 0);">Serta</span></p>
+                <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">Mohamad Farouk Iskandar Bin Mhd A Wahid</span></strong></p>
+                <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">&amp;</span></strong></p>
+                <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">Syadiyah binti Samsuri</span></strong></p>
+                <p style='color: rgb(0, 0, 0);font-family: "'><strong><span style="color: rgb(0, 0, 0);">Pada 1 Februari 2025, Sabtu</span></strong></p>
+                <p style='color: rgb(0, 0, 0);font-family: "'><strong><span style="color: rgb(0, 0, 0);">3 Syaaban 1446H</span></strong></p>
+		</div>
+		<div class="nav-bar">
+			
+			<button onclick="togglePopup('popup2')">
+				<img src="Picture/Rsvp.png" alt="RSVP Icon">
+			<div class="nav-text">RSVP</div>
+			</button>
+				<div id="overlay" class="overlay" onclick="closeAllPopups()"></div>
+				<div id="popup2" class="popup">
+					<button class="close-btn" onclick="togglePopup('popup2')">X</button>
+					<h3>RSVP</h3>
+					<div class="rsvp-buttons">
+						<button class="rsvp-button" onclick="showHadirForm()">Hadir</button>
+						<button class="rsvp-button" onclick="showTakHadirForm()">Tak Hadir</button>
+					</div>
+				</div>
+
+
+				<div id="popupHadir" class="popup">
+					<button class="close-btn" onclick="togglePopup('popupHadir')">X</button>
+					<h3>Hadir</h3>
+					<form id="hadirForm">
+						<label for="name">Nama:</label>
+						<input type="text" id="name" name="name" required>
+						<label for="quantity">Kuantiti:</label>
+						<input type="number" id="quantity" name="quantity" min="1" max="20" required>
+						<div class="form-buttons">
+							<button type="submit">Hantar</button>
+							<button type="button" onclick="togglePopup('popupHadir')">Tutup</button>
+						</div>
+					</form>
+				</div>
+
+				<div id="popupTakHadir" class="popup">
+					<button class="close-btn" onclick="togglePopup('popupTakHadir')">X</button>
+					<h3>Tak Hadir</h3>
+					<form id="takHadirForm">
+						<label for="name">Nama:</label>
+						<input type="text" id="name" name="name" required>
+						<div class="form-buttons">
+							<button type="submit">Hantar</button>
+							<button type="button" onclick="togglePopup('popupTakHadir')">Tutup</button>
+						</div>
+					</form>
+				</div>
+
+
+
+
+			<div id="popupEventClosed" class="popup">
+				<button class="close-btn" onclick="togglePopup('popupEventClosed')">X</button>
+				<h3>Event Closed</h3>
+				<p>The event has ended.</p>
+				<p>Total Hadir: <span id="totalHadir"></span></p>
+				<p>Total Tak Hadir: <span id="totalTakHadir"></span></p>
+			</div>
+
+			
+			
+			
+			<button onclick="togglePopup('popup5')">
+				<img src="Picture/money.png" alt="Gift Icon">
+				<div class="nav-text">Gift</div>
+			</button>
+				<div id="popup5" class="popup">
+					<button class="close-btn" onclick="togglePopup('popup5')">X</button>
+					<h3>Gift</h3>
+						<p>Nama Bank</p>
+						<div class="gift-box">Maybank Berhad</div>
+						<p>No Akaun</p>
+						<div class="gift-box">
+							012192039312
+							<img src="Picture/Copy.png" alt="Copy Icon" class="copy-icon" onclick="copyAccountNumber()">
+						</div>
+						<p>Kod QR</p>
+						<img src="Picture/qr.jpg" alt="QR Code" class="qr-image">						
+						<img src="Picture/Simpan.png" alt="Download Icon" class="down-icon" onclick="downloadQR()">
+
+				</div>
+
+			
+			
+			
+			
+			
+			
+			<button onclick="togglePopup('popup3')">
+				<img src="Picture/Call.png" alt="Contact Icon">
+				<div class="nav-text">Contact</div>
+			</button>
+					<div id="popup3" class="popup">
+						<button class="close-btn" onclick="togglePopup('popup3')">X</button>
+						<h3>Contact</h3>
+						<div class="contact-section">
+							<p>Kinong</p>
+							<div class="icon-group">
+								<a href="tel:+60177448578">
+									<img src="Picture/calla.png" alt="Call Icon" class="contact-icon">
+								</a>
+							</div>
+						</div>
+						<div class="contact-section">
+							<p>Laili</p>
+							<div class="icon-group">
+								<a href="tel:+60177447621">
+									<img src="Picture/calla.png" alt="Call Icon" class="contact-icon">
+								</a>
+								<a href="https://wa.me/60177447621" target="_blank">
+									<img src="Picture/what.png" alt="WhatsApp Icon" class="contact-icon">
+								</a>
+							</div>
+						</div>
+						<div class="contact-section">
+							<p>Azwan</p>
+							<div class="icon-group">
+								<a href="tel:+60177746400">
+									<img src="Picture/calla.png" alt="Call Icon" class="contact-icon">
+								</a>
+								<a href="https://wa.me/60177746400" target="_blank">
+									<img src="Picture/what.png" alt="WhatsApp Icon" class="contact-icon">
+								</a>
+							</div>
+						</div>
+						<div class="contact-section">
+							<p>Farouk</p>
+							<div class="icon-group">
+								<a href="tel:+601127513056">
+									<img src="Picture/calla.png" alt="Call Icon" class="contact-icon">
+								</a>
+								<a href="https://wa.me/601127513056" target="_blank">
+									<img src="Picture/what.png" alt="WhatsApp Icon" class="contact-icon">
+								</a>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+			
+			
+			
+			
+			
+			<button onclick="togglePopup('popup4')">
+				<img src="Picture/Map.png" alt="Map Icon">
+				<div class="nav-text">Map</div>
+			</button>
+				<div id="popup4" class="popup">
+					<button class="close-btn" onclick="togglePopup('popup4')">X</button>
+					<h3>Location</h3>
+					<p>TL 113, Jalan Parit Besar Batu 2<br>Jalan Kluang, 83000, Batu Pahat, Johor</p>
+					<div class="map-container">
+						<iframe
+							width="300"
+							height="300"
+							frameborder="0"
+							style="border:0"
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d996.9139006237476!2d102.9666132696013!3d1.8866034402590453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d050933a9f9dff%3A0xbb90bf3eb74f0ee1!2sJ202%2C%2083000%20Batu%20Pahat%2C%20Johor!5e0!3m2!1sen!2smy!4v1730110379486!5m2!1sen!2smy"
+							allowfullscreen>
+							</iframe>
+						
+					</div>
+					<div class="icon-group">
+						<a href="https://www.google.com/maps/search/?api=1&query=1.887114003260982,102.96753991328738" target="_blank">
+							<img src="Picture/gmap.png" alt="Google Maps Icon" class="map-icon">
+						</a>
+						<a href="https://www.waze.com/en/live-map/directions/my/johor/batu-pahat/parit-besar-jalan-kluang?latlng=1.8873329290320908%2C102.96767592430116" target="_blank">
+							<img src="Picture/waze.png" alt="Waze Icon" class="map-icon">
+						</a>
+					</div>
+				</div>
+			
+			
+			
+			
+			
+			<button onclick="togglePopup('popup6')">
+				<img src="Picture/Cal.png" alt="Calendar Icon">
+				<div class="nav-text">Calendar</div>
+			</button>
+				<div id="popup6" class="popup">
+				<button class="close-btn" onclick="togglePopup('popup6')">X</button>
+				<h3>Calendar</h3>
+				<p>Sabtu, 1 Februari 2025</p>
+				<div class="calendar-container">
+					<table class="calendar">
+						<caption>Februari 2025</caption>
+						<thead>
+							<tr>
+								<th>Ahad</th>
+								<th>Isnin</th>
+								<th>Selasa</th>
+								<th>Rabu</th>
+								<th>Khamis</th>
+								<th>Jumaat</th>
+								<th>Sabtu</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="marked">1</td>
+							</tr>
+							<!-- Add more rows as needed for the rest of the month -->
+						</tbody>
+					</table>
+				</div>
+				<div class="icon-group">
+					<a href="https://calendar.google.com/calendar/r/eventedit?text=Walimatul+Urus+Azwan+%26+Amelia+serta+Farouk+%26+Syadiyah&dates=20250201T000000Z/20250201T235900Z" target="_blank">
+						<img src="Picture/glo.png" alt="Google Calendar Icon" class="calendar-icon">
+					</a>
+					<a href="https://www.icloud.com/calendar/eventedit?title=Walimatul+Urus+Azwan+%26+Amelia+serta+Farouk+%26+Syadiyah&startDate=2025-02-01" target="_blank">
+						<img src="Picture/apple.png" alt="Apple Calendar Icon" class="calendar-icon">
+					</a>
+				</div>
+			</div>
+
+			
+			
+			
+		</div>
+
+
+
+		
+		<div class="countdown-container">
+			<img src="Picture/Boarder.png" alt="Boarder Image" class="countdown-image">
+			<h3>Menanti Hari</h3>
+			<div id="countdown">
+				<div><span id="days"></span> Hari</div>
+				<div><span id="hours"></span> Jam</div>
+				<div><span id="minutes"></span> Minit</div>
+				<div><span id="seconds"></span> Saat</div>
+			</div>
+		</div>
+			<img src="Picture/Boarder.png" alt="Boarder Image" class="countdown-image">
+				<p><br></p>
+                <p><br></p>
+                <p><br></p>
+				<p><br></p>
+
+
+
+</html><!--===========================Code for emailjs function =========================-->
+		<script type="text/javascript"
+				src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+		</script>
+		<script type="text/javascript">
+		   (function(){
+			  emailjs.init({
+				publicKey: "t7iSRAA0ldYbhf46C",
+			  });
+		   })();
+		</script>
+
+<!--===========================Code for emailjs function==========================-->
+	<script>
+		function togglePopup(popupId) {
+        var popup = document.getElementById(popupId);
+        var overlay = document.getElementById('overlay');
+        if (popup.classList.contains('active')) {
+            popup.classList.remove('active');
+            overlay.classList.remove('active');
+        } else {
+            closeAllPopups();
+            popup.classList.add('active');
+            overlay.classList.add('active');
+        }
+    }
+
+		function closeAllPopups() {
+        var popups = document.querySelectorAll('.popup');
+        var overlay = document.getElementById('overlay');
+        popups.forEach(function(popup) {
+            popup.classList.remove('active');
+        });
+        overlay.classList.remove('active');
+    }
+
+		// Close popup if clicking outside of it
+		document.getElementById('overlay').addEventListener('click', function() {
+        closeAllPopups();
+    });
+	
+	
+	    function updateCountdown() {
+        const eventDate = new Date('February 1, 2025 00:00:00').getTime();
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = days;
+        document.getElementById('hours').innerText = hours;
+        document.getElementById('minutes').innerText = minutes;
+        document.getElementById('seconds').innerText = seconds;
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById('countdown').innerHTML = "Event has started!";
+        }
+    }
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call to display the countdown immediately
+	
+	
+	
+	
+			function showHadirForm() {
+				togglePopup('popup2');
+				togglePopup('popupHadir');
+			}
+
+			function showTakHadirForm() {
+				togglePopup('popup2');
+				togglePopup('popupTakHadir');
+			}
+
+			document.getElementById('hadirForm').addEventListener('submit', function(event) {
+				event.preventDefault();
+				const name = document.getElementById('name').value;
+				const quantityInput = document.getElementById('quantity');
+				let quantity = quantityInput.value;
+
+				// Ensure the quantity does not exceed 20
+				if (quantity > 20) {
+					quantity = 20;
+					quantityInput.value = 20; // Update the input field to reflect the limit
+				}
+
+				emailjs.send("service_svcz9o8", "template_vv8ay9p", {
+					subject: "Hadir",
+					name: name,
+					quantity: quantity
+				})
+				.then(function(response) {
+					alert('Terima Kasih kerana hadir. Jumpa anda disana ye!');
+					togglePopup('popupHadir');
+				}, function(error) {
+					console.error('Error:', error);
+				});
+			});
+
+
+			document.getElementById('takHadirForm').addEventListener('submit', function(event) {
+				event.preventDefault();
+				const name = document.getElementById('name').value;
+				emailjs.send("service_svcz9o8", "template_84p3zzs", {
+					subject: "Tak Hadir",
+					name: name
+				})
+				.then(function(response) {
+					alert('InsyaAllah ada rezeki kita jumpa lain kali ye!');
+					togglePopup('popupTakHadir');
+				}, function(error) {
+					console.error('Error:', error);
+				});
+			});
+
+			function checkEventStatus() {
+				const eventDate = new Date('February 1, 2025 00:00:00').getTime();
+				const now = new Date().getTime();
+				if (now > eventDate) {
+					togglePopup('popupEventClosed');
+					document.getElementById('totalHadir').innerText = 'Total Hadir from E5';
+					document.getElementById('totalTakHadir').innerText = 'Total Tak Hadir from E5';
+				}
+			}
+
+			checkEventStatus();
+			
+			
+			function copyAccountNumber() {
+				const accountNumber = "012192039312";
+				navigator.clipboard.writeText(accountNumber).then(() => {
+					alert("Copied");
+				}).catch(err => {
+					console.error('Failed to copy: ', err);
+				});
+			}
+			
+
+			function downloadQR() {
+				const link = document.createElement('a');
+				link.href = 'Picture/qr.jpg';
+				link.download = 'qr.jpg';
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			}
+
+
+
+	</script>
+
+</body>
