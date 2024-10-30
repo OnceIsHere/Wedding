@@ -47,12 +47,12 @@
             text-align: center;
             margin-top: 5%;
             color: black;
-			margin-left: 13%; /* Adjust the margin as needed */
-			margin-right: 13%; /* Adjust the margin as needed */
+			margin-left: 10%; /* Adjust the margin as needed */
+			margin-right: 10%; /* Adjust the margin as needed */
             animation: succession 5s ease-in-out;
         }
         @keyframes succession {
-            0% { opacity: 0; transform: translateY(-20px); }
+            0% { opacity: 0; transform: translateY(-20px); }as
             100% { opacity: 1; transform: translateY(0); }
         }
         .header h1 {
@@ -351,42 +351,120 @@
 			right: 10px;
 		}
 		
-		
-		.calendar-container {
+		body {
 			display: flex;
 			justify-content: center;
-			margin: 20px 0;
+			align-items: center;
+			height: 100vh;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		body::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background: inherit;
+			filter: blur(10px);
 		}
 
 		.calendar {
-			width: 100%;
-			border-collapse: collapse;
+			margin-left: 5%;
+			width: 300px;
+			background-color: #fff;
+			box-sizing: border-box;
+			border-radius: 8px;
+			overflow: hidden;
 		}
 
-		.calendar caption {
-			font-size: 1.5em;
-			margin-bottom: 10px;
+		.calendar__picture {
+			position: relative;
+			height: 200px;
+			padding: 20px;
+			color: #fff;
+			text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+			box-sizing: border-box;
 		}
 
-		.calendar th, .calendar td {
-			border: 1px solid #ddd;
-			padding: 5px;
-			text-align: center;
+		.calendar__picture::before {
+			content: "";
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			position: absolute;
+			background: linear-gradient(to top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.1));
 		}
 
-		.calendar .marked {
-			background-color: yellow; /* Highlight the marked date */
+		.calendar__picture h2 {
+			margin: 0;
 		}
+
+		.calendar__picture h3 {
+			margin: 0;
+			font-weight: 500;
+		}
+
+		.calendar__date {
+			padding: 20px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+			grid-gap: 10px;
+			box-sizing: border-box;
+		}
+
+		.calendar__day {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 25px;
+			font-weight: 600;
+			color: #262626;
+		}
+
+		.calendar__day:nth-child(7) {
+			color: #ff685d;
+		}
+
+		.calendar__number {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 25px;
+			color: #262626;
+		}
+
+		.calendar__number:nth-child(7n) {
+			color: #ff685d;
+			font-weight: 700;
+		}
+
+		.calendar__number--current,
+		.calendar__number:hover {
+			background-color: #009688;
+			color: #fff !important;
+			font-weight: 700;
+			cursor: pointer;
+		}
+
+		.icon-group {
+			display: flex;
+			justify-content: center;
+			gap: 20px; /* Add space between the icons */
+			margin-top: 20px;
+		}
+
 		.calendar-icon {
 			width: 120px;
 			height: 40px;
 			cursor: pointer;
 		}
-				 
 	 
-	 
-	 
-	 
+	  
+	  
+	  
 		.countdown-container {
 			text-align: center;
 			margin-top: 10px;
@@ -422,7 +500,6 @@
 		}
 
 
-
     </style>
 	
 	
@@ -439,6 +516,7 @@
             <div class="serta">SERTA</div>
             <h2>Farouk<br>&<br>Syadiyah</h2>
             <div class="date-info">
+				<p><br></p>
                 <p>SABTU, 1 FEBRUARI 2025</p>
                 <p>BERSAMAAN</p>
                 <p>3 SYAABAN 1446H</p>
@@ -446,13 +524,13 @@
             </div>
         </div>
 		<div class="isi" class="kandungan">
-		 <p style="font-family: 'Cinzel Dec Regular'; font-size: 14px;line-height: 1;"><b>Assalamualaikum &amp; Salam Sejahtera</b></p>
-                <p style="font-family: 'Cinzel Dec Regular';line-height: 1;">Norizam Bin Mohamed (Kinong)</p>
-                <p style="font-family: 'Cinzel Dec Regular'; line-height: 1;">N<span style="letter-spacing: 0.5px;">o</span>or Laili Binti Saadin</p>
-                <p style="font-family: 'Cinzel Dec Regular';">Bayah Binti Sabirin (Ibu)</p>
+		 <p style="font-family: 'Cinzel Dec Regular'; font-size: 15px;line-height: 1;"><b>Assalamualaikum &amp; Salam Sejahtera</b></p>
+                <p style="font-family: 'Cinzel Dec Regular';line-height: 1; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Norizam Bin Mohamed (Kinong)</p>
+                <p style="font-family: 'Cinzel Dec Regular'; line-height: 1; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">N<span style="letter-spacing: 0.5px;">o</span>or Laili Binti Saadin</p>
+                <p style="font-family: 'Cinzel Dec Regular'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Bayah Binti Sabirin (Ibu)</p>
                 <p style="font-family: 'Noto';"><strong>Dengan penuh syukur dan ikhlas menjemput</strong></p>
 				<p style="font-family: 'Noto';"><strong>Dato' / Datin / Tuan / Puan / Encik / Cik</strong></p>
-                <p style="font-family: 'Noto';font-size: 12px;">Suami &amp; isteri ke majlis anakanda kami yang dikasihi:</p>
+                <p style="font-family: 'Noto';font-size: 15px;">Suami &amp; isteri ke majlis anakanda kami yang dikasihi:</p>
                 <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><span>Mohamad Khairul Azwan B Mhd A Wahid</span></p>
                 <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">&amp;</span></strong></p>
                 <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">Intan Amelia Binti Supardi</span></strong></p>
@@ -460,9 +538,41 @@
                 <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">Mohamad Farouk Iskandar Bin Mhd A Wahid</span></strong></p>
                 <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">&amp;</span></strong></p>
                 <p style="font-family: 'Cinzel Dec Bold'; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><span style="color: rgb(0, 0, 0);">Syadiyah binti Samsuri</span></strong></p>
-                <p style='color: rgb(0, 0, 0);font-family: "'><strong><span style="color: rgb(0, 0, 0);">Pada 1 Februari 2025, Sabtu</span></strong></p>
-                <p style='color: rgb(0, 0, 0);font-family: "'><strong><span style="color: rgb(0, 0, 0);">3 Syaaban 1446H</span></strong></p>
+                <p><br></p>
+				<p style="font-family: 'Cinzel Dec Regular'; font-size: 15px;line-height: 1;"><strong><b>Tarikh</b></strong></p>
+				<p style='color: rgb(0, 0, 0);font-family: font-size: 20px;"'>Sabtu, 1 Februari 2025</p>
+				<p style='color: rgb(0, 0, 0);font-family: font-size: 20px;"'>bersamaan</p>
+				<p style='color: rgb(0, 0, 0);font-family: font-size: 20px;"'>03 Syaaban 1446H</p>
+				<p><br></p>
+				<p style="font-family: 'Cinzel Dec Regular'; font-size: 15px;line-height: 1;"><strong><b>Masa</b></strong></p>
+				<p style='color: rgb(0, 0, 0);font-family: font-size: 20px;"'>11:00 Pagi - 4:00 Petang</p>
+				<p><br></p>
+				<p style="font-family: 'Cinzel Dec Regular'; font-size: 15px;line-height: 1;"><strong><b>Tempat</b></strong></p>
+				<p style='color: rgb(0, 0, 0);font-family: font-size: 20px;"'>TL 113, Jalan Parit Besar Batu 2, Jalan Kluang, 83000, Batu Pahat, Johor</p>
+				
 		</div>
+		
+		<div class="countdown-container">
+			<img src="Picture/Boarder.png" alt="Boarder Image" class="countdown-image">
+			<h3>Menanti Hari</h3>
+			<div id="countdown">
+				<div><span id="days"></span> Hari</div>
+				<div><span id="hours"></span> Jam</div>
+				<div><span id="minutes"></span> Minit</div>
+				<div><span id="seconds"></span> Saat</div>
+			</div>
+		</div>
+			<img src="Picture/Boarder.png" alt="Boarder Image" class="countdown-image">
+				<p><br></p>
+                <p><br></p>
+                <p><br></p>
+				<p><br></p>
+
+		
+		
+		
+		
+		
 		<div class="nav-bar">
 			
 			<button onclick="togglePopup('popup2')">
@@ -645,46 +755,63 @@
 				<div class="nav-text">Calendar</div>
 			</button>
 				<div id="popup6" class="popup">
-				<button class="close-btn" onclick="togglePopup('popup6')">X</button>
-				<h3>Calendar</h3>
-				<p>Sabtu, 1 Februari 2025</p>
-				<div class="calendar-container">
-					<table class="calendar">
-						<caption>Februari 2025</caption>
-						<thead>
-							<tr>
-								<th>Ahad</th>
-								<th>Isnin</th>
-								<th>Selasa</th>
-								<th>Rabu</th>
-								<th>Khamis</th>
-								<th>Jumaat</th>
-								<th>Sabtu</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td class="marked">1</td>
-							</tr>
-							<!-- Add more rows as needed for the rest of the month -->
-						</tbody>
-					</table>
-				</div>
-				<div class="icon-group">
-					<a href="https://calendar.google.com/calendar/r/eventedit?text=Walimatul+Urus+Azwan+%26+Amelia+serta+Farouk+%26+Syadiyah&dates=20250201T000000Z/20250201T235900Z" target="_blank">
-						<img src="Picture/glo.png" alt="Google Calendar Icon" class="calendar-icon">
-					</a>
-					<a href="https://www.icloud.com/calendar/eventedit?title=Walimatul+Urus+Azwan+%26+Amelia+serta+Farouk+%26+Syadiyah&startDate=2025-02-01" target="_blank">
-						<img src="Picture/apple.png" alt="Apple Calendar Icon" class="calendar-icon">
-					</a>
+			<button class="close-btn" onclick="togglePopup('popup6')">X</button>
+			<h3>Calendar</h3>
+			<p>Sabtu, 1 Februari 2025</p>
+			<div class="calendar">
+				<div class="calendar__date">
+					<div class="calendar__day">S</div>
+					<div class="calendar__day">M</div>
+					<div class="calendar__day">T</div>
+					<div class="calendar__day">W</div>
+					<div class="calendar__day">T</div>
+					<div class="calendar__day">F</div>
+					<div class="calendar__day">S</div>
+					<div class="calendar__number"></div>
+					<div class="calendar__number"></div>
+					<div class="calendar__number"></div>
+					<div class="calendar__number"></div>
+					<div class="calendar__number">1</div>
+					<div class="calendar__number">2</div>
+					<div class="calendar__number">3</div>
+					<div class="calendar__number">4</div>
+					<div class="calendar__number">5</div>
+					<div class="calendar__number">6</div>
+					<div class="calendar__number">7</div>
+					<div class="calendar__number">8</div>
+					<div class="calendar__number">9</div>
+					<div class="calendar__number">10</div>
+					<div class="calendar__number">11</div>
+					<div class="calendar__number">12</div>
+					<div class="calendar__number">13</div>
+					<div class="calendar__number">14</div>
+					<div class="calendar__number">15</div>
+					<div class="calendar__number">16</div>
+					<div class="calendar__number">17</div>
+					<div class="calendar__number calendar__number--current">18</div>
+					<div class="calendar__number">19</div>
+					<div class="calendar__number">20</div>
+					<div class="calendar__number">21</div>
+					<div class="calendar__number">22</div>
+					<div class="calendar__number">23</div>
+					<div class="calendar__number">24</div>
+					<div class="calendar__number">25</div>
+					<div class="calendar__number">26</div>
+					<div class="calendar__number">27</div>
+					<div class="calendar__number">28</div>
+					<div class="calendar__number">29</div>
 				</div>
 			</div>
+    <div class="icon-group">
+        <a href="https://calendar.google.com/calendar/r/eventedit?text=Walimatul+Urus+Azwan+%26+Amelia+serta+Farouk+%26+Syadiyah&dates=20250201T000000Z/20250201T235900Z" target="_blank">
+            <img src="Picture/glo.png" alt="Google Calendar Icon" class="calendar-icon">
+        </a>
+        <a href="https://www.icloud.com/calendar/eventedit?title=Walimatul+Urus+Azwan+%26+Amelia+serta+Farouk+%26+Syadiyah&startDate=2025-02-01" target="_blank">
+            <img src="Picture/apple.png" alt="Apple Calendar Icon" class="calendar-icon">
+        </a>
+    </div>
+</div>
+
 
 			
 			
@@ -694,21 +821,6 @@
 
 
 		
-		<div class="countdown-container">
-			<img src="Picture/Boarder.png" alt="Boarder Image" class="countdown-image">
-			<h3>Menanti Hari</h3>
-			<div id="countdown">
-				<div><span id="days"></span> Hari</div>
-				<div><span id="hours"></span> Jam</div>
-				<div><span id="minutes"></span> Minit</div>
-				<div><span id="seconds"></span> Saat</div>
-			</div>
-		</div>
-			<img src="Picture/Boarder.png" alt="Boarder Image" class="countdown-image">
-				<p><br></p>
-                <p><br></p>
-                <p><br></p>
-				<p><br></p>
 
 
 
